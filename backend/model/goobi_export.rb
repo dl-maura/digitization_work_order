@@ -36,11 +36,11 @@ class GoobiExport
       # Physical description {fdid=82}
       {:header => "physDesc",               :proc => Proc.new {|row| physical_description(row)}},
       # Note {fdid=86}
-      {:header => "note",              :proc => Proc.new {|row| note(row)}},
+      {:header => "note",                   :proc => Proc.new {|row| note(row)}},
       # Abstract {fdid=87}
       {:header => "abstract",               :proc => Proc.new {|row| abstract(row)}},
       # Barcode {fdid=105}
-      {:header => "aspace_barcode",                :proc => Proc.new {|row| barcode(row)}},
+      {:header => "aspace_barcode",         :proc => Proc.new {|row| barcode(row)}},
       # Publication Type
       {:header => "pubType",                :proc => Proc.new {|row| "ArchivalObject" }},
       # Collection
@@ -48,9 +48,19 @@ class GoobiExport
       # use opac
       {:header => "useOPAC",                :proc => Proc.new {|row| "TRUE" }},
       # use aspace opac
-      {:header => "opacName",               :proc => Proc.new {|row| "aspace" }},
-      #Process title
-      {:header => "processTitle",           :proc => Proc.new {|row| nil }}, #BLANK!
+      {:header => "opacName",               :proc => Proc.new {|row| "ArchivesSpace" }},
+      #Goobi Identifier
+      {:header => "goobiIdentifier",        :proc => Proc.new {|row| rand.to_s[2..14] }}, #random 13 digit
+      #Viewing Restriction
+      {:header => "yaleRestriction",        :proc => Proc.new {|row| nil }}, #BLANK!
+      #Copyright/use statement
+      {:header => "yaleUse",                :proc => Proc.new {|row| nil }}, #BLANK!
+      #Collection Owner
+      {:header => "yaleOwner",              :proc => Proc.new {|row| nil }}, #BLANK!
+      #Extent of Digitization
+      {:header => "extentDigitization",     :proc => Proc.new {|row| nil }}, #BLANK!
+      #Digitization Note
+      {:header => "digitizationNote",       :proc => Proc.new {|row| nil }}, #BLANK!
     ]
   end
 
